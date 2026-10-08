@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NeuroCheck</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>NeuroCheck</h1>
+        <p>Exploración de características del neurodesarrollo</p>
+    </header>
+<nav class="menu">
+    <h2>🧠 NeuroCheck</h2>
+
+    <div class="enlaces-menu">
+        <button onclick="mostrarSeccion('inicio')">Inicio</button>
+        <button onclick="mostrarSeccion('informacion')">Información</button>
+        <button onclick="mostrarSeccion('cuestionario')">Cuestionario</button>
+    </div>
+</nav>
+
+    <main>
+
+        <!-- INICIO -->
+
+        <section class="inicio" id="inicio">
+
+            <h2>Bienvenido</h2>
+
+            <p>
+                Esta página contiene cuestionarios y actividades
+                educativas relacionadas con algunas características
+                del neurodesarrollo.
+            </p>
+
+            <p class="aviso">
+                ⚠️ Esta herramienta no realiza diagnósticos médicos.
+            </p>
+
+            <button onclick="comenzarCuestionario()">
+                Comenzar cuestionario
+            </button>
+
+        </section>
+<section id="informacion" class="informacion">
+    <h1>🧠 Información sobre el autismo</h1>
+
+    <p>
+        El autismo, también llamado trastorno del espectro autista (TEA),
+        es una condición del neurodesarrollo que puede influir en la forma
+        en que una persona se comunica, interactúa y percibe diferentes
+        estímulos del entorno.
+    </p>
+
+    <h2>🔹 Algunas características</h2>
+
+    <ul>
+        <li>Diferentes formas de comunicación e interacción social.</li>
+        <li>Preferencias por determinadas rutinas o formas de hacer las cosas.</li>
+        <li>Diferencias en la manera de percibir sonidos, luces, texturas u otros estímulos.</li>
+        <li>Intereses específicos o una atención especial hacia determinados temas.</li>
+    </ul>
+
+    <h2>🔹 Sensibilidad sensorial</h2>
+
+    <p>
+        Algunas personas pueden experimentar los sonidos, luces, texturas
+        u otros estímulos de una manera diferente. Estas experiencias
+        pueden variar mucho de una persona a otra.
+    </p>
+
+    <h2>🔹 Importante</h2>
+
+    <div class="aviso">
+        <strong>⚠️ Esta página tiene fines educativos.</strong>
+        <p>
+            Las actividades de NeuroCheck sirven para explorar preferencias,
+            percepción y formas de interacción. No son una prueba médica
+            y no pueden diagnosticar autismo.
+        </p>
+    </div>
+
+    <button onclick="mostrarSeccion('cuestionario')">
+        Comenzar actividades →
+    </button>
+</section>
+
+        <!-- CUESTIONARIO -->
+
+        <section id="cuestionario" class="cuestionario">
+
+            <h2>Cuestionario</h2>
+
+            <p id="progreso"></p>
+
+            <div class="pregunta">
+
+                <h3 id="textoPregunta"></h3>
+
+                <div id="respuestas"></div>
+
+            </div>
+
+            <button id="siguiente"
+                    onclick="siguientePregunta()"
+                    disabled>
+                Siguiente
+            </button>
+
+        </section>
+
+
+        <!-- ACTIVIDAD DE SONIDOS -->
+
+        <section id="actividadSonidos" class="sonidos">
+
+            <h2>🔊 Actividad de sonidos</h2>
+
+            <p>
+                Escucha cada sonido con un volumen cómodo para ti.
+                Después indica cómo te resultó.
+            </p>
+
+            <p class="aviso">
+                Puedes detener el sonido en cualquier momento.
+            </p>
+
+
+            <div class="barra">
+
+                <div id="barraProgreso"></div>
+
+            </div>
+
+            <p id="progresoSonido">
+                Sonido 1 de 5
+            </p>
+
+
+            <div class="tarjetaSonido">
+
+                <div class="iconoSonido" id="iconoSonido">
+                    🔊
+                </div>
+
+                <h3 id="nombreSonido">
+                    Sonido
+                </h3>
+
+                <p id="descripcionSonido"></p>
+
+
+                <div class="controles">
+
+                    <button onclick="reproducirSonido()">
+                        ▶️ Escuchar
+                    </button>
+
+                    <button onclick="detenerSonido()">
+                        ⏹️ Detener
+                    </button>
+
+                </div>
+
+
+                <h3>
+                    ¿Cómo te resultó este sonido?
+                </h3>
+
+
+                <div class="opcionesSensacion">
+
+                    <button onclick="registrarSensacion('comodo')">
+                        😌 Cómodo
+                    </button>
+
+                    <button onclick="registrarSensacion('neutral')">
+                        😐 Neutral
+                    </button>
+
+                    <button onclick="registrarSensacion('incomodo')">
+                        😣 Incómodo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADO DE SONIDOS -->
+
+        <section id="resultadoSonidos" class="resultado">
+
+            <h2>Resultado de la actividad</h2>
+
+            <div id="resumenSonidos"></div>
+
+            <p class="aviso">
+
+                Este resultado únicamente describe las respuestas
+                registradas durante esta actividad y no constituye
+                un diagnóstico médico.
+
+            </p>
+
+           <button onclick="mostrarActividadOrden()">
+    Continuar a actividad de organización 🧩
+</button>
+
+        </section>
+<!-- ACTIVIDAD DE ORDEN -->
+<section id="actividadOrden" class="orden">
+    <h2>🧩 Actividad de organización</h2>
+
+    <p>
+        Ordena los objetos de <strong>menor a mayor</strong>.
+        Arrástralos y colócalos en el orden que consideres correcto.
+    </p>
+
+    <p class="aviso">
+        Esta actividad únicamente registra cómo realizaste la actividad
+        y no constituye una prueba o diagnóstico médico.
+    </p>
+
+    <div class="objetos" id="objetos">
+        <div class="objeto" draggable="true" data-orden="3">🔵</div>
+        <div class="objeto" draggable="true" data-orden="1">🟢</div>
+        <div class="objeto" draggable="true" data-orden="5">🔴</div>
+        <div class="objeto" draggable="true" data-orden="2">🟡</div>
+        <div class="objeto" draggable="true" data-orden="4">🟣</div>
+    </div>
+
+    <h3>Coloca los objetos aquí:</h3>
+
+    <div class="zonaOrden" id="zonaOrden"></div>
+
+    <button onclick="comprobarOrden()">Comprobar orden</button>
+
+    <div id="resultadoOrden"></div>
+</section>
+<!-- ACTIVIDAD DE FLUIDOS -->
+<section id="actividadFluidos" class="fluidos">
+
+    <h2>🌈 Simulador de fluidos</h2>
+
+    <p>
+        Toca o arrastra sobre la pantalla para crear colores y observar
+        cómo se mezclan.
+    </p>
+
+    <p class="aviso">
+        Explora libremente la pantalla y crea tu propia combinación de colores.
+    </p>
+
+    <div class="controlesFluidos">
+
+        <label for="colorFluido">
+            Color:
+        </label>
+
+        <input
+            type="color"
+            id="colorFluido"
+            value="#7c4dff"
+        >
+
+        <label for="tamanoFluido">
+            Tamaño:
+        </label>
+
+        <input
+            type="range"
+            id="tamanoFluido"
+            min="10"
+            max="80"
+            value="35"
+        >
+
+        <button id="limpiarFluidos" type="button">
+            🗑️ Limpiar
+        </button>
+<button id="reiniciarFluidos">🔄 Reiniciar actividad</button>
+    </div>
+
+    <canvas id="canvasFluidos"></canvas>
+<br>
+
+<button onclick="mostrarSeccion('final')">
+    ✅ Terminar actividades
+</button>
+    <p class="instruccionFluidos">
+        🖱️ Arrastra con el mouse o toca y mueve el dedo sobre la pantalla.
+    </p>
+
+</section>
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <section id="final" class="final">
+    <div class="final-contenido">
+
+        <h1>🎉 ¡Has terminado!</h1>
+
+        <p>
+            Completaste todas las actividades de NeuroCheck.
+        </p>
+
+        <div class="actividades-completadas">
+            <p>✅ Cuestionario</p>
+            <p>✅ Exploración de sonidos</p>
+            <p>✅ Actividad de orden</p>
+            <p>✅ Simulador de fluidos</p>
+        </div>
+
+        <p class="mensaje-final">
+            Recuerda que estas actividades son únicamente educativas
+            y no representan un diagnóstico.
+        </p>
+
+        <button onclick="reiniciarPagina()">
+            🔄 Comenzar nuevamente
+        </button>
+
+    </div>
+</section>
+</body>
+
+</html>

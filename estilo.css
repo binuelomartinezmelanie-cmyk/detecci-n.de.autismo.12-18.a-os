@@ -1,0 +1,822 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #eef4f8;
+
+    color: #263238;
+
+    min-height: 100vh;
+}
+
+
+/* ENCABEZADO */
+
+header {
+
+    background: #5b7c99;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+}
+
+
+header h1 {
+
+    font-size: 40px;
+
+    margin-bottom: 8px;
+
+}
+
+
+header p {
+
+    font-size: 18px;
+
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+
+main {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 75vh;
+
+    padding: 30px;
+
+}
+
+
+/* INICIO */
+
+.inicio {
+
+    background: white;
+
+    max-width: 700px;
+
+    width: 100%;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+.inicio h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.inicio p {
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* AVISOS */
+
+.aviso {
+
+    background: #fff7df;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    line-height: 1.5;
+
+}
+
+
+/* BOTONES */
+
+button {
+
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 10px;
+
+    background: #5b7c99;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin: 5px;
+
+    transition: 0.2s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+
+}
+
+
+button:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
+/* CUESTIONARIO */
+
+.cuestionario {
+
+    display: none;
+
+    background: white;
+
+    max-width: 700px;
+
+    width: 100%;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+.cuestionario h2 {
+
+    margin-bottom: 10px;
+
+}
+
+
+#progreso {
+
+    margin-bottom: 30px;
+
+    font-weight: bold;
+
+}
+
+
+.pregunta h3 {
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+
+}
+
+
+#respuestas {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.respuesta {
+
+    width: 100%;
+
+    background: white;
+
+    color: #263238;
+
+    border: 2px solid #d5dfe6;
+
+}
+
+
+.respuesta:hover {
+
+    background: #eef4f8;
+
+}
+
+
+.respuesta.seleccionada {
+
+    background: #dceaf4;
+
+    border-color: #5b7c99;
+
+}
+
+
+/* ACTIVIDAD DE SONIDOS */
+
+.sonidos {
+
+    display: none;
+
+    background: white;
+
+    max-width: 750px;
+
+    width: 100%;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+.sonidos h2 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.sonidos > p {
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* BARRA DE PROGRESO */
+
+.barra {
+
+    width: 100%;
+
+    height: 12px;
+
+    background: #e1e8ed;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin: 25px 0 10px;
+
+}
+
+
+#barraProgreso {
+
+    width: 20%;
+
+    height: 100%;
+
+    background: #5b7c99;
+
+    transition: 0.4s;
+
+}
+
+
+/* TARJETA DEL SONIDO */
+
+.tarjetaSonido {
+
+    background: #f5f8fa;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-top: 20px;
+
+}
+
+
+.iconoSonido {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+}
+
+
+#nombreSonido {
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+}
+
+
+#descripcionSonido {
+
+    margin-bottom: 20px;
+
+    color: #546e7a;
+
+}
+
+
+/* CONTROLES */
+
+.controles {
+
+    margin-bottom: 30px;
+
+}
+
+
+.controles button {
+
+    min-width: 130px;
+
+}
+
+
+/* RESPUESTAS DE SENSACIÓN */
+
+.opcionesSensacion {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+.opcionesSensacion button {
+
+    background: white;
+
+    color: #263238;
+
+    border: 2px solid #d5dfe6;
+
+}
+
+
+.opcionesSensacion button:hover {
+
+    background: #eef4f8;
+
+}
+
+
+/* RESULTADO */
+
+.resultado {
+
+    display: none;
+
+    background: white;
+
+    max-width: 700px;
+
+    width: 100%;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+.resultado h2 {
+
+    margin-bottom: 25px;
+
+}
+
+
+.resultadoCaja {
+
+    text-align: left;
+
+    background: #f5f8fa;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.resultadoCaja p {
+
+    margin: 10px 0;
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    header h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    main {
+
+        padding: 15px;
+
+    }
+
+
+    .inicio,
+    .cuestionario,
+    .sonidos,
+    .resultado {
+
+        padding: 25px;
+
+    }
+
+
+    .opcionesSensacion {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+/* =========================================
+   ACTIVIDAD DE ORDEN
+========================================= */
+
+.orden {
+    display: none;
+    background: white;
+    max-width: 750px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.orden h2 {
+    margin-bottom: 15px;
+}
+
+.orden > p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.objetos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: #f5f8fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+}
+
+.objeto {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border: 3px solid #d5dfe6;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: grab;
+    user-select: none;
+}
+
+.objeto:active {
+    cursor: grabbing;
+}
+
+.zonaOrden {
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: #eef4f8;
+    border: 3px dashed #9eb1bf;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0 25px;
+}
+
+.zonaOrden:empty::before {
+    content: "Arrastra los objetos aquí";
+    color: #78909c;
+    font-size: 16px;
+}
+
+#resultadoOrden {
+    margin-top: 20px;
+}
+
+.resultadoOrdenCorrecto {
+    background: #e4f5e9;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.resultadoOrdenIntento {
+    background: #fff7df;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+@media (max-width: 600px) {
+    .orden {
+        padding: 25px;
+    }
+
+    .objeto {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+    }
+}
+/* =========================================
+   SIMULADOR DE FLUIDOS
+========================================= */
+
+.fluidos {
+    display: none;
+    background: white;
+    max-width: 850px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.fluidos h2 {
+    margin-bottom: 15px;
+}
+
+.fluidos > p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.controlesFluidos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.controlesFluidos label {
+    font-weight: bold;
+}
+
+#colorFluido {
+    width: 55px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#tamanoFluido {
+    width: 150px;
+    cursor: pointer;
+}
+
+#canvasFluidos {
+    display: block;
+    width: 100%;
+    height: 450px;
+    background: #080812;
+    border-radius: 18px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.instruccionFluidos {
+    margin-top: 15px;
+    color: #607d8b;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+
+    .fluidos {
+        padding: 20px;
+    }
+
+    #canvasFluidos {
+        height: 400px;
+    }
+
+    .controlesFluidos {
+        gap: 10px;
+    }
+}
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu h2 {
+    margin: 0;
+}
+
+.enlaces-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.enlaces-menu button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #eeeeee;
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.informacion {
+    display: none;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.informacion h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.informacion h2 {
+    margin-top: 25px;
+}
+
+.informacion p,
+.informacion li {
+    line-height: 1.7;
+}
+
+.informacion ul {
+    padding-left: 25px;
+}
+
+.aviso {
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff3cd;
+    margin: 20px 0;
+}
+
+/* =========================
+   PANTALLA FINAL
+========================= */
+
+.final {
+    display: none;
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
+
+.final h1 {
+    font-size: 35px;
+}
+
+.actividades-completadas {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: #f5f5f5;
+    text-align: left;
+}
+
+.actividades-completadas p {
+    margin: 12px 0;
+}
+
+.mensaje-final {
+    line-height: 1.6;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .enlaces-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .informacion,
+    .final {
+        margin: 20px;
+        padding: 20px;
+    }
+}
